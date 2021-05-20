@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: wepapp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: wepapp
+    spec:
+      containers:
+      - name: wepapp
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: registry.gitlab.com
